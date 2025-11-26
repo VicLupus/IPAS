@@ -31,9 +31,9 @@ async function startServer() {
     
     // 미들웨어
     app.use(cors());
-    // UTF-8 인코딩 명시적 설정
-    app.use(express.json({ charset: 'utf-8' }));
-    app.use(express.urlencoded({ extended: true, charset: 'utf-8' }));
+    // 기본 JSON/URL-encoded 파서 사용 (Express 기본값이 UTF-8)
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
     
     // 모든 JSON 응답에 UTF-8 charset 헤더 추가
     app.use((req, res, next) => {

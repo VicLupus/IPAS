@@ -188,13 +188,13 @@ async function processFiles(allFiles: any[]) {
             title: parsedData.title,
             content: parsedData.content,
             keywords: parsedData.keywords.join(','),
-            category: extractCategory(fileInfo.filename),
+            category: extractCategory(fileInfo.filename) || undefined,
             pdf_path: fileInfo.filePath,
             pdf_filename: fileInfo.filename,
             pdf_hash: hash,
             pdf_mtime: mtime,
-            premium_amount: parsedData.structuredData.premiumAmount || null,
-            coverage_period: parsedData.structuredData.coveragePeriod || null,
+            premium_amount: parsedData.structuredData.premiumAmount,
+            coverage_period: parsedData.structuredData.coveragePeriod,
             structured_data: parsedData.structuredData
           });
 
